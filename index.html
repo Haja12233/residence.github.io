@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Écovillage Hutamac | Séjour Écologique à Belo-sur-Mer, Madagascar</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #1a6e8d;
+            --secondary-color: #2e8b57;
+            --accent-color: #d4af37;
+            --light-color: #f8f4e9;
+            --dark-color: #333;
+            --transition: all 0.4s ease;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .navbar.scrolled {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            padding: 10px 0;
+        }
+        
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/495366778_1207917944452140_5360963919504572904_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGpS_04SycKMxJAXV7vDC12E-Htxx7YA04T4e3HHtgDTr_ucTIvwGgrgnpHxOfieZsRaEYF8gg1XoPuX48Ulr1v&_nc_ohc=czT0vKTJ8EYQ7kNvwF7lpbX&_nc_oc=AdnFsDOWvGG_hIIcUFV09MeFVDCtxLr145n3b8uyeNBE-XGJi4LMb3XQmR5ENj8Y1nQ&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=4HgNGR5lNLkKaaRpvAJlcg&oh=00_AfULIxe9TcyDr7CaiRW_1XEjbjAb6uIMNA1bClTAJy0IHA&oe=68AC92ED') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-attachment: fixed;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.3) 100%);
+            pointer-events: none;
+        }
+        
+        .wave-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47,46.29,163.26,46.29,279.5,46.29c116.24,0,232.5,0,279.5,0c47,0,163.26,0,279.5,0c116.24,0,232.5,0,279.5,0V0h-1200z" fill="%23f8f4e9"></path></svg>') top center no-repeat;
+            background-size: 100% 100px;
+            animation: wave 10s linear infinite;
+        }
+        
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1200px; }
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+        
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .eco-badge {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), #155a73);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(26, 110, 141, 0.3);
+            transition: var(--transition);
+        }
+        
+        .card:hover .icon-box {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(26, 110, 141, 0.4);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            color: var(--accent-color);
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 10px 15px !important;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link i {
+            margin-right: 5px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link:hover i {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .image-parallax {
+            transform: scale(1.02);
+            transition: transform 0.5s ease;
+        }
+        
+        .image-parallax:hover {
+            transform: scale(1.05);
+        }
+        
+        .activity-card {
+            transition: var(--transition);
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .activity-card:hover {
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .activity-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        
+        .activity-card:hover .activity-icon {
+            transform: scale(1.1) rotate(10deg);
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .testimonial {
+            position: relative;
+            padding: 25px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        
+        .testimonial::before {
+            content: """;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 5rem;
+            color: var(--accent-color);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #2e8b57, #256d45);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(46, 139, 87, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #155a73);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(26, 110, 141, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(26, 110, 141, 0.4);
+            background: linear-gradient(135deg, #155a73, #11485c);
+        }
+        
+        .gallery-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 3px solid var(--accent-color);
+        }
+        
+        .contact-card {
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .contact-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        .eco-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .eco-feature:hover {
+            transform: translateX(5px);
+        }
+        
+        .eco-feature-icon {
+            min-width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .progress-container {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            height: 12px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .baobab-icon {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .baobab-1 {
+            top: 10%;
+            left: 5%;
+            font-size: 3rem;
+        }
+        
+        .baobab-2 {
+            bottom: 15%;
+            right: 8%;
+            font-size: 2.5rem;
+        }
+
+        /* Nouveaux styles */
+        .img-cover {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(26, 110, 141, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .eco-counter {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .counter-item i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .instagram-feed {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .instagram-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1/1;
+        }
+        
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .instagram-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .instagram-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .instagram-item:hover .instagram-overlay {
+            opacity: 1;
+        }
+        
+        .instagram-overlay i {
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Icônes de baobabs décoratives -->
+    <i class="fas fa-tree baobab-icon baobab-1"></i>
+    <i class="fas fa-tree baobab-icon baobab-2"></i>
+
+    <!-- Header avec Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="logo-hutamac2ob-1024x219.jpg" alt="Logo Hutamac - Écovillage à Belo-sur-Mer" class="img-fluid" style="max-height: 60px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#accueil"><i class="fas fa-home"></i> Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#hebergements"><i class="fas fa-hotel"></i> Hébergements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#restaurant"><i class="fas fa-utensils"></i> Restaurant</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#activites"><i class="fas fa-hiking"></i> Activités</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tarifs"><i class="fas fa-tag"></i> Tarifs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero text-white">
+        <div class="container position-relative">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-3 fw-bold mb-4 fade-in">Résidence Hutamac</h1>
+                    <p class="lead fs-4 mb-5 fade-in" style="animation-delay: 0.2s;">Un séjour authentique, naturel et durable à Mahajanga</p>
+                    <a href="#hebergements" class="btn btn-primary btn-lg px-5 fade-in" style="animation-delay: 0.4s;">
+                        <i class="fas fa-door-open me-2"></i>Découvrir nos pavillons
+                    </a>
+                    <div class="scroll-indicator fade-in" style="animation-delay: 0.6s;">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in">
+                    <h2 class="section-title">Notre Écovillage</h2>
+                    <p class="fs-5">Idéalement posé sur la plage, entre la reposante baie de Belo-sur-Mer et la majestueuse forêt de baobabs, l'Écovillage Hutamac se trouve parfaitement bien implanté dans l'environnement... et dans la société !</p>
+                    <p>Nous œuvrons pour la préservation de la biodiversité, pour la promotion des emplois locaux et pour la valorisation économique de Belo. Chaque élément de notre village a été conçu avec respect pour la nature et les traditions malgaches.</p>
+                    <div class="mt-4">
+                        <span class="eco-badge"><i class="fas fa-solar-panel me-1"></i> Énergie solaire</span>
+                        <span class="eco-badge"><i class="fas fa-toilet-paper me-1"></i> securiser </span>
+                        <span class="eco-badge"><i class="fas fa-tint me-1"></i> permaculture </span>
+                        <span class="eco-badge"><i class="fas fa-tree me-1"></i> Matériaux locaux</span>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h3 class="mb-4">Notre engagement écologique</h3>
+                        <div class="eco-feature">
+                            <div class="eco-feature-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div>
+                                <h5>Énergie solaire</h5>
+                                <p>Électricité fournie par panneaux solaires, l'ensemble est autosuffisant</p>
+                            </div>
+                        </div>
+                        
+                        <div class="eco-feature">
+                            <div class="eco-feature-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div>
+                                <h5>Respect de l'Eau</h5>
+                                <p>Restriction à 5 litres d'eau par personne et par jour, toilettes sèches</p>
+                                <div class="progress-container">
+                                    <div class="progress-label">
+                                        <span>Eau quotidienne</span>
+                                        <span>5L / personne</span>
+                                    </div>
+                                    <div class="progress-bar" data-width="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="eco-feature">
+                            <div class="eco-feature-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div>
+                                <h5>Matériaux Locaux</h5>
+                                <p>Constructions réalisées uniquement avec des matériaux locaux</p>
+                                <div class="progress-container">
+                                    <div class="progress-label">
+                                        <span>Matériaux locaux</span>
+                                        <span>100%</span>
+                                    </div>
+                                    <div class="progress-bar" data-width="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="row">
+                        <div class="col-6 mb-4 fade-in" style="animation-delay: 0.5s;">
+                            <div class="card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3cb5KwFcKqF_o9JYXQlRrw8PHXbcT_IAGmA&s" class="card-img-top image-parallax" alt="Parc Kirindy-Mitea">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="icon-box">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <h4 class="text-center">Village Touristique </h4>
+                                    <p class="text-center">Plongez dans l'authenticité malgache au cœur de la région nord-ouest de Madagascar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Section Hébergements -->
+<section id="hebergements" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Nos Hébergements</h2>
+        <p class="text-center mb-5 fs-5">Découvrez nos huttes individuelles conçues pour un séjour authentique en harmonie avec la nature</p>
+        
+        <div class="row">
+            <!-- Hutte 1 -->
+            <div class="col-md-6 col-lg-4 mb-5 fade-in">
+                <div class="card h-100">
+                    <div class="position-relative">
+                        <!-- Carousel d'images -->
+                        <div id="carouselFlamboyant" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/482240771_1161187655791836_8310598121251009752_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG40COk7yer0GRaToHPc0N1Z5csz9NgIfxnlyzP02Ah_Lhz30q4XOvdRr1mcMJU29s_bgIaMlMSpleTDPePExkF&_nc_ohc=3mmnA1refgQQ7kNvwGfum6X&_nc_oc=AdmWrdf6zxansHL6P1VoFBjFFwzr3EkmB0yg4WRL1HowN5qMr6a66e9SNk3kVtoDoZw&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=x0MYIM4RWD4n2jvgVl9GPQ&oh=00_AfVj0Iu0mA2Fxm0UuzIu51ovfdr2Sh9I_i7Hxp3FPRzA4w&oe=68ACA27B" class="card-img-top gallery-img" alt="Le Flamboyant - Vue extérieure">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/483571504_1160949189149016_8821995491620346479_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHVMYDbtJvLiR5WzBuaWhO-BmIKzKO4djUGYgrMo7h2NWVAhJj747BpxgO8U69isSy1vyv4dzXnzR7j2TR60jRI&_nc_ohc=AP5uxvCpCLMQ7kNvwF8L_Y6&_nc_oc=Adnn0rtSDxostASP7Rw_LUbsrO9mTvCFZQ1CAyJWcfmd9YqWpWMvMmSvQywqxpRK_FM&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=A4oVLu7rVdNj46UWLWtnUQ&oh=00_AfWTigsg0QF8srI597lQrjWuUNC2hNu2lZyI6VBirfbxWA&oe=68ACAD43" class="card-img-top gallery-img" alt="Le Flamboyant - Intérieur">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/527500045_1273956941181573_3638633025575735306_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFCo9xLcWcTqVEf1muyb7EnXu8g9xj54M1e7yD3GPngzbuDarRa0OhFjgHrFJr9FBVbQj9j3FmmOOqZfA2NSbON&_nc_ohc=Roaq9VJx6y8Q7kNvwEZEVP1&_nc_oc=AdmRyRA7dxfJWKHtDgCTLdxElME_jltEB31t-w3fPYA-QqznPlcsQE0hDAJkjhnyr4c&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=w9n1ogu_tOLVN3f2NUDrOg&oh=00_AfVMNRjjHabcfB94BzyiipM0_mBOZLWBj4WyBVSUvr3DQQ&oe=68ACB5CB" class="card-img-top gallery-img" alt="Le Flamboyant - Terrasse">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFlamboyant" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselFlamboyant" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="position-absolute" style="top: 15px; left: 15px;">
+                            <span class="badge bg-warning text-dark px-3 py-2 fs-6">POPULAIRE</span>
+                        </div>
+                        <div class="position-absolute" style="bottom: 10px; left: 0; right: 0;">
+                            <div class="carousel-indicators position-relative m-0">
+                                <button type="button" data-bs-target="#carouselFlamboyant" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselFlamboyant" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselFlamboyant" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h3 class="card-title mb-0">Le Flamboyant</h3>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted">Notre hutte emblématique avec vue imprenable sur la baie</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mini-bungalow 3m x 3m</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Hamacs fabriqués main sur place</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Moustiquaire complète</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Accès direct à la plage</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Vue panoramique sur la baie</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <span class="price-tag">À partir de 30€/nuit</span>
+                            <a href="#contact" class="btn btn-primary">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hutte 2 -->
+            <div class="col-md-6 col-lg-4 mb-5 fade-in" style="animation-delay: 0.2s;">
+                <div class="card h-100">
+                    <div class="position-relative">
+                        <!-- Carousel d'images -->
+                        <div id="carouselMaiden" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/483571504_1160949189149016_8821995491620346479_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHVMYDbtJvLiR5WzBuaWhO-BmIKzKO4djUGYgrMo7h2NWVAhJj747BpxgO8U69isSy1vyv4dzXnzR7j2TR60jRI&_nc_ohc=AP5uxvCpCLMQ7kNvwF8L_Y6&_nc_oc=Adnn0rtSDxostASP7Rw_LUbsrO9mTvCFZQ1CAyJWcfmd9YqWpWMvMmSvQywqxpRK_FM&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=A4oVLu7rVdNj46UWLWtnUQ&oh=00_AfWTigsg0QF8srI597lQrjWuUNC2hNu2lZyI6VBirfbxWA&oe=68ACAD43" class="card-img-top gallery-img" alt="Le Maiden - Vue extérieure">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/482240771_1161187655791836_8310598121251009752_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG40COk7yer0GRaToHPc0N1Z5csz9NgIfxnlyzP02Ah_Lhz30q4XOvdRr1mcMJU29s_bgIaMlMSpleTDPePExkF&_nc_ohc=3mmnA1refgQQ7kNvwGfum6X&_nc_oc=AdmWrdf6zxansHL6P1VoFBjFFwzr3EkmB0yg4WRL1HowN5qMr6a66e9SNk3kVtoDoZw&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=x0MYIM4RWD4n2jvgVl9GPQ&oh=00_AfVj0Iu0mA2Fxm0UuzIu51ovfdr2Sh9I_i7Hxp3FPRzA4w&oe=68ACA27B" class="card-img-top gallery-img" alt="Le Maiden - Intérieur">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/527500045_1273956941181573_3638633025575735306_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFCo9xLcWcTqVEf1muyb7EnXu8g9xj54M1e7yD3GPngzbuDarRa0OhFjgHrFJr9FBVbQj9j3FmmOOqZfA2NSbON&_nc_ohc=Roaq9VJx6y8Q7kNvwEZEVP1&_nc_oc=AdmRyRA7dxfJWKHtDgCTLdxElME_jltEB31t-w3fPYA-QqznPlcsQE0hDAJkjhnyr4c&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=w9n1ogu_tOLVN3f2NUDrOg&oh=00_AfVMNRjjHabcfB94BzyiipM0_mBOZLWBj4WyBVSUvr3DQQ&oe=68ACB5CB" class="card-img-top gallery-img" alt="Le Maiden - Vue forêt">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMaiden" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMaiden" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="position-absolute" style="top: 15px; left: 15px;">
+                            <span class="badge bg-info text-white px-3 py-2 fs-6">ROMANTIQUE</span>
+                        </div>
+                        <div class="position-absolute" style="bottom: 10px; left: 0; right: 0;">
+                            <div class="carousel-indicators position-relative m-0">
+                                <button type="button" data-bs-target="#carouselMaiden" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselMaiden" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselMaiden" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h3 class="card-title mb-0">Le Maiden</h3>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted">Pour les amoureux de tranquillité et de nature</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mini-bungalow 3m x 3m</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Hamacs fabriqués main sur place</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Moustiquaire complète</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Vue sur la forêt de baobabs</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Emplacement calme et isolé</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <span class="price-tag">À partir de 30€/nuit</span>
+                            <a href="#contact" class="btn btn-primary">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hutte 3 -->
+            <div class="col-md-6 col-lg-4 mb-5 fade-in" style="animation-delay: 0.3s;">
+                <div class="card h-100">
+                    <div class="position-relative">
+                        <!-- Carousel d'images -->
+                        <div id="carouselTsara" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/527500045_1273956941181573_3638633025575735306_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFCo9xLcWcTqVEf1muyb7EnXu8g9xj54M1e7yD3GPngzbuDarRa0OhFjgHrFJr9FBVbQj9j3FmmOOqZfA2NSbON&_nc_ohc=Roaq9VJx6y8Q7kNvwEZEVP1&_nc_oc=AdmRyRA7dxfJWKHtDgCTLdxElME_jltEB31t-w3fPYA-QqznPlcsQE0hDAJkjhnyr4c&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=w9n1ogu_tOLVN3f2NUDrOg&oh=00_AfVMNRjjHabcfB94BzyiipM0_mBOZLWBj4WyBVSUvr3DQQ&oe=68ACB5CB" class="card-img-top gallery-img" alt="Le Tsara - Vue extérieure">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/483571504_1160949189149016_8821995491620346479_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHVMYDbtJvLiR5WzBuaWhO-BmIKzKO4djUGYgrMo7h2NWVAhJj747BpxgO8U69isSy1vyv4dzXnzR7j2TR60jRI&_nc_ohc=AP5uxvCpCLMQ7kNvwF8L_Y6&_nc_oc=Adnn0rtSDxostASP7Rw_LUbsrO9mTvCFZQ1CAyJWcfmd9YqWpWMvMmSvQywqxpRK_FM&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=A4oVLu7rVdNj46UWLWtnUQ&oh=00_AfWTigsg0QF8srI597lQrjWuUNC2hNu2lZyI6VBirfbxWA&oe=68ACAD43" class="card-img-top gallery-img" alt="Le Tsara - Intérieur">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/482240771_1161187655791836_8310598121251009752_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG40COk7yer0GRaToHPc0N1Z5csz9NgIfxnlyzP02Ah_Lhz30q4XOvdRr1mcMJU29s_bgIaMlMSpleTDPePExkF&_nc_ohc=3mmnA1refgQQ7kNvwGfum6X&_nc_oc=AdmWrdf6zxansHL6P1VoFBjFFwzr3EkmB0yg4WRL1HowN5qMr6a66e9SNk3kVtoDoZw&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=x0MYIM4RWD4n2jvgVl9GPQ&oh=00_AfVj0Iu0mA2Fxm0UuzIu51ovfdr2Sh9I_i7Hxp3FPRzA4w&oe=68ACA27B" class="card-img-top gallery-img" alt="Le Tsara - Terrasse">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTsara" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselTsara" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <div class="position-absolute" style="top: 15px; left: 15px;">
+                            <span class="badge bg-success text-white px-3 py-2 fs-6">FAMILIALE</span>
+                        </div>
+                        <div class="position-absolute" style="bottom: 10px; left: 0; right: 0;">
+                            <div class="carousel-indicators position-relative m-0">
+                                <button type="button" data-bs-target="#carouselTsara" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselTsara" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselTsara" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h3 class="card-title mb-0">Le Tsara</h3>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-muted">Pour les couples en quête d'intimité</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mini-bungalow 3m x 3m</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Hamacs fabriqués main sur place</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Moustiquaire complète</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Emplacement isolé et paisible</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Espace terrasse avec vue mer</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+                            <span class="price-tag">À partir de 30€/nuit</span>
+                            <a href="#contact" class="btn btn-primary">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bouton "Voir plus d'hébergements" -->
+        <div class="text-center mt-5">
+            <a href="hebergements.html" class="btn btn-primary btn-lg px-5 py-3">
+                <i class="fas fa-plus-circle me-2"></i>Voir plus d'hébergements
+            </a>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <div class="h-100 p-4 bg-white rounded shadow-sm">
+                    <h3 class="mb-4">Le concept Hutamac</h3>
+                    <p class="fs-5">Le hutamac est un mini bungalow destiné au sommeil et au repos. Il est simple et permet par le repli du hamac de disposer d'une pièce de 3m*3m. Il est prévu d'équiper le lieu d'une moustiquaire dessus et dessous le hamac.</p>
+                    <p class="fs-5">Les hamacs sont tous fabriqués main dans l'atelier de tissage d'Hutamac. Vous aurez d'ailleurs la possibilité d'en acheter sur place à partir de 100 000 Ar.</p>
+                    
+                    <div class="mt-4 p-3 bg-light rounded">
+                        <h4 class="mb-3">Caractéristiques principales</h4>
+                        <div class="d-flex mb-2">
+                            <i class="fas fa-check-circle text-success mt-1 me-2"></i>
+                            <div>
+                                <strong>Équipement minimaliste</strong> - Respect de l'environnement et simplicité
+                            </div>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="fas fa-check-circle text-success mt-1 me-2"></i>
+                            <div>
+                                <strong>Moustiquaire complète</strong> - Protection contre les insectes
+                            </div>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <i class="fas fa-check-circle text-success mt-1 me-2"></i>
+                            <div>
+                                <strong>Espace terrasse</strong> - Pour profiter de la vue et du calme
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <i class="fas fa-check-circle text-success mt-1 me-2"></i>
+                            <div>
+                                <strong>Matériaux locaux</strong> - Construction traditionnelle malgache
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="card contact-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-box me-3" style="width: 60px; height: 60px; font-size: 1.2rem;">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-0">Accessibilité</h4>
+                                    </div>
+                                </div>
+                                <p>Accessible à partir de Morondava en 4×4 à la saison sèche ou par bateau en saison humide. L'écovillage est idéalement situé entre la baie de Belo-sur-Mer et la forêt de baobabs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card contact-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="icon-box me-3" style="width: 60px; height: 60px; font-size: 1.2rem;">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-0">Notre Engagement</h4>
+                                    </div>
+                                </div>
+                                <p>Nous prônons le tourisme et le développement durable en respectant et préservant les lieux. Notre empreinte écologique est minime, nos constructions sont faites de manières traditionnelles avec des matériaux locaux.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section Témoignages -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="section-title text-center mb-4">Ce que disent nos visiteurs</h3>
+                <div class="row">
+                    <div class="col-md-4 mb-4 fade-in" style="animation-delay: 0.1s;">
+                        <div class="testimonial">
+                            <p class="mb-0">"Un séjour inoubliable dans un cadre magnifique. Le concept des huttes avec hamacs est très original et confortable. L'accueil de Daniel est chaleureux et attentionné. Une expérience authentique à ne pas manquer !"</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <div class="me-3">
+                                    <i class="fas fa-user-circle fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Marie L.</h6>
+                                    <small class="text-muted">France</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4 fade-in" style="animation-delay: 0.2s;">
+                        <div class="testimonial">
+                            <p class="mb-0">"L'écovillage Hutamac est un véritable havre de paix. La vue sur la baie depuis notre hutte était sublime. Nous avons adoré participer à l'atelier de tissage et acheter un hamac en souvenir. Un séjour parfaitement équilibré entre détente et découverte."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <div class="me-3">
+                                    <i class="fas fa-user-circle fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Thomas D.</h6>
+                                    <small class="text-muted">Suisse</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4 fade-in" style="animation-delay: 0.3s;">
+                        <div class="testimonial">
+                            <p class="mb-0">"Un endroit magique où l'on se sent vraiment en harmonie avec la nature. Les repas préparés avec les produits du potager et de la pêche du jour étaient délicieux. L'engagement écologique du lieu est vraiment inspirant."</p>
+                            <div class="d-flex align-items-center mt-4">
+                                <div class="me-3">
+                                    <i class="fas fa-user-circle fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Sophie M.</h6>
+                                    <small class="text-muted">Canada</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Section Restaurant -->
+    <section id="restaurant" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <h2 class="section-title">Notre Restaurant</h2>
+                    <p class="fs-5">Votre hôte Daniel vous accueillera et vous fera visiter le village. Il est très attentionné et veillera à ce que vous passiez d'agréables vacades. C'est également lui le chef du restaurant, chaque jour il vous préparera des plats issus de la pêche du jour et du potager attenant au village.</p>
+                    <p class="fs-5">Nous proposons une cuisine authentique malgache avec des produits 100% locaux. Chaque matin, les pêcheurs du village rapportent leur prise et notre potager fournit des légumes frais chaque jour.</p>
+                    
+                    <div class="mt-4">
+                        <div class="d-flex mb-4">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <div>
+                                <h4>Pêche du jour</h4>
+                                <p>Des poissons et fruits de mer frais pêchés chaque matin par les pêcheurs locaux</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div>
+                                <h4>Potager biologique</h4>
+                                <p>Légumes et herbes aromatiques cultivés sans pesticides dans notre jardin</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="icon-box me-3">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div>
+                                <h4>Cuisine traditionnelle</h4>
+                                <p>Découvrez les saveurs authentiques de Madagascar avec nos plats traditionnels</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 p-4 bg-light rounded shadow-sm">
+                        <h4 class="mb-3">Menu typique</h4>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Entrée : Salade de crudités du potager</span>
+                            <span class="text-muted">5€</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Plat : Poisson grillé avec riz et légumes</span>
+                            <span class="text-muted">12€</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Dessert : Fruits tropicaux frais</span>
+                            <span class="text-muted">4€</span>
+                        </div>
+                        <div class="d-flex justify-content-between fw-bold mt-3 pt-3 border-top">
+                            <span>Pension complète</span>
+                            <span>30€/jour</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 mb-5 mb-lg-0 fade-in">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid rounded shadow-lg floating" alt="Restaurant Hutamac">
+                        <div class="position-absolute" style="bottom: 20px; left: 20px; background: rgba(0,0,0,0.7); color: white; padding: 15px 25px; border-radius: 10px; max-width: 80%;">
+                            <h5 class="mb-0">"Une expérience culinaire authentique"</h5>
+                        </div>
+                        <div class="position-absolute" style="top: 20px; right: 20px; background: rgba(255,255,255,0.9); color: var(--primary-color); padding: 15px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-utensils fa-2x mb-3"></i>
+                            <h5 class="mb-0">Cuisine maison</h5>
+                            <p class="mb-0">100% produits locaux</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Activités -->
+    <section id="activites" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Activités & Excursions</h2>
+            <p class="text-center mb-5 fs-5">Découvrez les nombreuses activités et excursions proposées dans la région de Belo-sur-Mer</p>
+            
+            <div class="row">
+                <div class="col-md-6 mb-5">
+                    <div class="activity-card h-100">
+                        <div class="position-relative">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxxPcgymAXnCW5nrsY9jD8KYJhgVKqcK_tK3xJkNIA5O9Vy8QOmT7eRKvR5-Ib0LeICKWmh5nM3fRabdoMgHyMHned6ZAoYJ1A8ughTRezyYEf85J63hYM08hO9OlsIqhnm1B7EsoibhvPsbNilcMU9dEv9WGcWSd2m0N9703QDAdCWGLppt0_RgPJOe7y/s720/c.jpg" class="img-fluid w-100" style="height: 300px; object-fit: cover;" alt="Parc Kirindy-Mitea">
+                            <div class="activity-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3>Village Touristique</h3>
+                            <p class="fs-5">Plongez dans l'authenticité créole au cœur des plages de sable blanc de Mahajanga !</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Visite guidée par des guides locaux</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Découverte de la faune et flore malgache</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Profitez de nos accès directs à des plages de sable fin où les eaux turquoises invitent à la détente et à la baignade.</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Excursion d'une journée complète</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="price-tag">25€/personne</span>
+                                <a href="#contact" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <div class="activity-card h-100">
+                        <div class="position-relative">
+                            <img src="https://petitfute.twic.pics/medias/photo/originale/9b/d2/200575-majunga-mahajanga-port-aux-boutres-de-majunga.jpg" style="height: 300px; object-fit: cover;" alt="Chantiers navals">
+                            <div class="activity-icon">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3>Chantiers navals</h3>
+                            <p class="fs-5">Visitez les chantiers de construction de boutres et découvrez les techniques traditionnelles de construction navale malgache. Observez les artisans à l'œuvre et apprenez l'histoire de ces bateaux traditionnels.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Visite des chantiers de construction</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Découverte des techniques traditionnelles</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Rencontre avec les artisans locaux</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Explication des méthodes ancestrales</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="price-tag">Gratuit (don suggéré)</span>
+                                <a href="#contact" class="btn btn-primary">Participer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <div class="activity-card h-100">
+                        <div class="position-relative">
+                            <img src="https://s.rfi.fr/media/display/8b71b73a-10ab-11ea-b95f-005056bf7c53/w:1280/p:1x1/retour_de_peche_0.jpg" class="img-fluid w-100" style="height: 300px; object-fit: cover;" alt="Pêche traditionnelle">
+                            <div class="activity-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3>Pêche traditionnelle</h3>
+                            <p class="fs-5">Participez à une sortie de pêche traditionnelle avec les pêcheurs locaux. Découvrez leurs méthodes ancestrales et repartez avec votre prise du jour qui pourra être préparée par notre chef pour votre dîner.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Sortie en pirogue avec les pêcheurs locaux</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Découverte des méthodes traditionnelles de pêche</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Préparation de votre prise par notre chef</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Excursion matinale ou en fin de journée</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="price-tag">20€/personne</span>
+                                <a href="#contact" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <div class="activity-card h-100">
+                        <div class="position-relative">
+                            <img src="https://www.madagascarautrement.com/assets/img/articles/11/article-header.jpg" style="height: 300px; object-fit: cover;" alt="Cours de cuisine">
+                            <div class="activity-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3>Cours de cuisine malgache</h3>
+                            <p class="fs-5">Apprenez à préparer des plats traditionnels malgaches avec Daniel, notre hôte et chef. Utilisez les produits du potager et de la pêche du jour pour créer des recettes authentiques.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Préparation de plats traditionnels malgaches</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Utilisation de produits locaux et de saison</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Dégustation de vos créations</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Recettes à emporter pour reproduire chez vous</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <span class="price-tag">25€/séance</span>
+                                <a href="#contact" class="btn btn-primary">Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-5 p-4 bg-white rounded shadow">
+                <h3 class="mb-4 text-center">Autres activités disponibles</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <h4 class="mb-3">Massage traditionnel</h4>
+                        <p class="fs-5">Profitez d'un massage traditionnel malgache dans un cadre idyllique. Nos masseuses utilisent des huiles naturelles et des techniques ancestrales pour vous détendre complètement.</p>
+                        
+                        <div class="mt-4">
+                            <h5>Options disponibles :</h5>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-spa me-3 text-primary" style="font-size: 1.5rem;"></i>
+                                <span>Massage relaxant (1h) - 15€</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-spa me-3 text-primary" style="font-size: 1.5rem;"></i>
+                                <span>Massage aux huiles essentielles (1h30) - 20€</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-spa me-3 text-primary" style="font-size: 1.5rem;"></i>
+                                <span>Cérémonie complète (2h) - 25€</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="mb-3">Visite de la forêt de baobabs</h4>
+                        <p class="fs-5">Découvrez la célèbre forêt de baobabs bouteilles à proximité de Belo-sur-Mer. Une excursion incontournable pour admirer ces arbres majestueux qui symbolisent Madagascar.</p>
+                        
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <h5 class="mb-3">Informations pratiques</h5>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Durée</span>
+                                <span class="text-muted">Demi-journée</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Distance</span>
+                                <span class="text-muted">20 km de l'écovillage</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Meilleure période</span>
+                                <span class="text-muted">Mai à Octobre</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Prix</span>
+                                <span class="text-muted">20€/personne</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-clock me-3 text-primary" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <strong>Horaires</strong> - Excursions organisées tous les matins à 8h30
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-user-friends me-3 text-primary" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <strong>Groupes</strong> - Minimum 2 personnes, maximum 12 personnes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Tarifs -->
+    <section id="tarifs" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Nos Tarifs</h2>
+            <p class="text-center mb-5 fs-5">Profitez d'un hébergement économique tout confort en hutte indépendante pour moins de 30 € la nuitée en pension complète</p>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-lg">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-4">
+                                <h3 class="display-6 fw-bold">Séjour en Pension Complète</h3>
+                                <p class="lead">Hébergement en hutte individuelle avec repas préparés avec des produits locaux</p>
+                            </div>
+                            
+                            <div class="row mb-5">
+                                <div class="col-md-4 text-center mb-3 mb-md-0">
+                                    <div class="bg-light p-4 rounded h-100">
+                                        <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                            <i class="fas fa-moon"></i>
+                                        </div>
+                                        <h4 class="fw-bold fs-3">30€</h4>
+                                        <p>Par nuit</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center mb-3 mb-md-0">
+                                    <div class="bg-light p-4 rounded h-100">
+                                        <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                            <i class="fas fa-calendar-week"></i>
+                                        </div>
+                                        <h4 class="fw-bold fs-3">195€</h4>
+                                        <p>Par semaine</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="bg-light p-4 rounded h-100">
+                                        <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                        <h4 class="fw-bold fs-3">750€</h4>
+                                        <p>Par mois</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mb-3">Ce prix inclut :</h4>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex"><i class="fas fa-check-circle text-success me-2 mt-1"></i> Hébergement en hutte individuelle</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-check-circle text-success me-2 mt-1"></i> Pension complète (petit-déjeuner, déjeuner, dîner)</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-check-circle text-success me-2 mt-1"></i> Accès aux activités de base (visite du village, ateliers découverte)</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-check-circle text-success me-2 mt-1"></i> Eau potable (5L par personne et par jour)</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-check-circle text-success me-2 mt-1"></i> Accès aux toilettes sèches et douches écologiques</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-check-circle text-success me-2 mt-1"></i> Électricité solaire (éclairage et prises limitées)</li>
+                            </ul>
+                            
+                            <h4 class="mb-3">Options supplémentaires :</h4>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex"><i class="fas fa-plus-circle text-primary me-2 mt-1"></i> Excursion au Parc Kirindy-Mitea : 25€/personne</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-plus-circle text-primary me-2 mt-1"></i> Massage traditionnel : 15€/séance</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-plus-circle text-primary me-2 mt-1"></i> Cours de cuisine malgache : 20€/séance</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-plus-circle text-primary me-2 mt-1"></i> Achat de hamac artisanal : à partir de 100 000 Ar</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-plus-circle text-primary me-2 mt-1"></i> Participation aux ateliers de construction : 15€/jour</li>
+                                <li class="list-group-item d-flex"><i class="fas fa-plus-circle text-primary me-2 mt-1"></i> Visite des chantiers navals : Gratuit (don suggéré)</li>
+                            </ul>
+                            
+                            <div class="alert alert-info mt-4">
+                                <div class="d-flex">
+                                    <i class="fas fa-info-circle fa-2x me-3 mt-1"></i>
+                                    <div>
+                                        <h5 class="alert-heading">Remarque importante</h5>
+                                        <p>Les tarifs peuvent varier selon la saison. Nous acceptons les paiements en euros et en ariary malgache. Une réservation est confirmée par un acompte de 30%.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <a href="#contact" class="btn btn-primary btn-lg px-5 py-3">
+                                    <i class="fas fa-calendar-check me-2"></i>Réserver maintenant
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Comparaison -->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section-title text-center mb-4">Pourquoi choisir Hutamac ?</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="fs-5" style="width: 30%;">Caractéristiques</th>
+                                    <th class="text-center fs-5" style="width: 25%;">Hutamac</th>
+                                    <th class="text-center fs-5" style="width: 25%;">Hôtels classiques</th>
+                                    <th class="text-center fs-5" style="width: 20%;">Autres écolodges</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Impact écologique</td>
+                                    <td class="text-center"><i class="fas fa-check-circle text-success"></i> Très faible</td>
+                                    <td class="text-center"><i class="fas fa-times-circle text-danger"></i> Élevé</td>
+                                    <td class="text-center"><i class="fas fa-check-circle text-warning"></i> Faible</td>
+                                </tr>
+                                <tr>
+                                    <td>Énergie</td>
+                                    <td class="text-center"><i class="fas fa-solar-panel text-success"></i> Solaire 100%</td>
+                                    <td class="text-center"><i class="fas fa-plug text-danger"></i> Réseau électrique</td>
+                                    <td class="text-center"><i class="fas fa-solar-panel text-warning"></i> Partiellement solaire</td>
+                                </tr>
+                                <tr>
+                                    <td>Consommation d'eau</td>
+                                    <td class="text-center"><i class="fas fa-tint text-success"></i> 5L/j/personne</td>
+                                    <td class="text-center"><i class="fas fa-tint text-danger"></i> Illimitée</td>
+                                    <td class="text-center"><i class="fas fa-tint text-warning"></i> 20L/j/personne</td>
+                                </tr>
+                                <tr>
+                                    <td>Toilettes</td>
+                                    <td class="text-center"><i class="fas fa-toilet text-success"></i> Sèches</td>
+                                    <td class="text-center"><i class="fas fa-toilet text-danger"></i> Classiques</td>
+                                    <td class="text-center"><i class="fas fa-toilet text-warning"></i> Mixtes</td>
+                                </tr>
+                                <tr>
+                                    <td>Matériaux de construction</td>
+                                    <td class="text-center"><i class="fas fa-tree text-success"></i> 100% locaux</td>
+                                    <td class="text-center"><i class="fas fa-truck text-danger"></i> Importés</td>
+                                    <td class="text-center"><i class="fas fa-tree text-warning"></i> Partiellement locaux</td>
+                                </tr>
+                                <tr>
+                                    <td>Engagement communautaire</td>
+                                    <td class="text-center"><i class="fas fa-hands-helping text-success"></i> Fort</td>
+                                    <td class="text-center"><i class="fas fa-hands-helping text-danger"></i> Faible</td>
+                                    <td class="text-center"><i class="fas fa-hands-helping text-warning"></i> Modéré</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Galerie de Photos</h2>
+            <p class="text-center mb-5 fs-5">Découvrez l'écovillage à travers nos photographies</p>
+            
+            <div id="galleryCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+                <div class="carousel-inner rounded shadow-lg overflow-hidden">
+                    <div class="carousel-item active">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyQ98nTUwZfJpcb9KgYavxXwqFQ5Matkp66E6jwK4-O0q_9W3kHkQImq1ZbhUTEr4fg7fJ08-eBlE-4B2wWzwlcSbcP7KULqK6MUq6Qvz49CXV8snKGCSNBOUtzwxbCOQPfBOzwEYhVJIxvhHUsq8yd6Z8_QQOCRz6sr_Cu4ekU1vzLDDCS99Vvz_Q8gZY/w1200-h675-p-k-no-nu/VILLAGE%20TOURISTIQUE_%20MAHAJANGA.jpg" class="d-block w-100" style="height: 600px; object-fit: cover;" alt="Baie de Belo-sur-Mer">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="display-6 fw-bold">La Baie de Village Touristique</h3>
+                            <p class="fs-4">Une vue imprenable sur les eaux turquoises de la baie</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Barea_Village_Touristique_Mahajanga_Madagascar.jpg" class="d-block w-100" style="height: 600px; object-fit: cover;" alt="Forêt de baobabs">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="display-6 fw-bold">Barea de Mahajanga</h3>
+                            <p class="fs-4">Plongez dans l'ambiance chaleureuse de Mahajanga avec Barea, votre refuge idéal pour explorer la perle créole de Madagascar !</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="d-block w-100" style="height: 600px; object-fit: cover;" alt="Restaurant">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="display-6 fw-bold">Notre Restaurant</h3>
+                            <p class="fs-4">Des plats préparés avec des produits locaux et de saison</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+                <div class="carousel-indicators position-relative mt-3">
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img w-100" alt="Hutte avec hamac">
+                    <div class="mt-2">
+                        <h5>Nos huttes individuelles</h5>
+                        <p class="text-muted">Des mini-bungalows conçus avec des matériaux locaux</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1519657337289-0776534f2985?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img w-100" alt="Chantiers navals">
+                    <div class="mt-2">
+                        <h5>Chantiers navals</h5>
+                        <p class="text-muted">Construction traditionnelle de boutres malgaches</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1596713102433-04140aa4c5e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img w-100" alt="Baobabs">
+                    <div class="mt-2">
+                        <h5>Forêt de baobabs</h5>
+                        <p class="text-muted">La célèbre forêt de baobabs bouteilles à proximité</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img w-100" alt="Atelier tissage">
+                    <div class="mt-2">
+                        <h5>Atelier de tissage</h5>
+                        <p class="text-muted">Fabrication artisanale des hamacs sur place</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img w-100" alt="Parc Kirindy">
+                    <div class="mt-2">
+                        <h5>Parc Kirindy-Mitea</h5>
+                        <p class="text-muted">Excursion dans le parc national riche en biodiversité</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1596386461350-326ccb383e9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="gallery-img w-100" alt="Potager">
+                    <div class="mt-2">
+                        <h5>Notre potager</h5>
+                        <p class="text-muted">Légumes cultivés sans pesticides pour nos repas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Contact</h2>
+                    <p class="fs-5">Votre hôte Daniel Carrière, responsable de l'écovillage, sera ravi de répondre à toutes vos questions et de vous aider à planifier votre séjour.</p>
+                    
+                    <div class="mt-5">
+                        <h4 class="mb-4">Coordonnées</h4>
+                        <div class="contact-card p-4 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-map-marker-alt contact-icon fs-4"></i>
+                                <div>
+                                    <h5>Adresse</h5>
+                                    <p class="mb-0">Écovillage Hutamac, Belo-sur-Mer, Madagascar</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card p-4 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-phone contact-icon fs-4"></i>
+                                <div>
+                                    <h5>Téléphone</h5>
+                                    <p class="mb-0">+261 33 62 951 01</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card p-4 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-envelope contact-icon fs-4"></i>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p class="mb-0">sanjayy@live.ca</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card p-4 mb-4">
+                            <div class="d-flex align-items-start">
+                                <i class="fab fa-skype contact-icon fs-4"></i>
+                                <div>
+                                    <h5>Skype</h5>
+                                    <p class="mb-0">sanjay25251</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4 class="mt-5 mb-4">Horaires d'ouverture</h4>
+                        <div class="contact-card p-4">
+                            <div class="d-flex align-items-center">
+                                <i class="far fa-clock contact-icon fs-4"></i>
+                                <div>
+                                    <h5>Disponibilité</h5>
+                                    <p class="mb-0"><strong>Lundi - Dimanche :</strong> 8h00 - 18h00</p>
+                                    <p class="mb-0">Nous sommes disponibles pour répondre à vos questions et prendre vos réservations pendant ces horaires.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg h-100">
+                        <div class="card-body p-5">
+                            <h3 class="mb-4">Demande de réservation</h3>
+                            <form>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="firstName" class="form-label">Prénom</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="lastName" class="form-label">Nom</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="form-label">Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="phone" class="form-label">Téléphone</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <label for="checkIn" class="form-label">Date d'arrivée</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-calendar-check"></i></span>
+                                            <input type="date" class="form-control" id="checkIn" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="checkOut" class="form-label">Date de départ</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-calendar-times"></i></span>
+                                            <input type="date" class="form-control" id="checkOut" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="guests" class="form-label">Nombre de personnes</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                        <input type="number" class="form-control" id="guests" min="1" max="6" value="2">
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="form-label">Message</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                                        <textarea class="form-control" id="message" rows="4" placeholder="Précisez vos besoins, questions ou demandes spéciales..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                    <label class="form-check-label" for="newsletter">
+                                        J'accepte de recevoir des informations sur Hutamac et les offres spéciales
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 btn-lg py-3">
+                                    <i class="fas fa-paper-plane me-2"></i>Envoyer ma demande de réservation
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="h4 mb-4">Hutamac</h3>
+                    <p class="fs-5">Un écovillage situé à Belo-sur-Mer, Madagascar, qui allie respect de l'environnement, développement durable et authenticité culturelle.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3 h3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3 h3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3 h3"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white h3"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="h5 mb-4">Navigation</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a href="#accueil"><i class="fas fa-home me-2"></i>Accueil</a></li>
+                        <li class="mb-3"><a href="#hebergements"><i class="fas fa-hotel me-2"></i>Hébergements</a></li>
+                        <li class="mb-3"><a href="#restaurant"><i class="fas fa-utensils me-2"></i>Restaurant</a></li>
+                        <li class="mb-3"><a href="#activites"><i class="fas fa-hiking me-2"></i>Activités</a></li>
+                        <li class="mb-3"><a href="#tarifs"><i class="fas fa-tag me-2"></i>Tarifs</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope me-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="h5 mb-4">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex">
+                            <i class="fas fa-map-marker-alt me-3"></i>
+                            <span>Belo-sur-Mer, Madagascar</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fas fa-phone me-3"></i>
+                            <span>+261 33 62 951 01</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fas fa-envelope me-3"></i>
+                            <span>sanjayy@live.ca</span>
+                        </li>
+                        <li class="mb-3 d-flex">
+                            <i class="fab fa-skype me-3"></i>
+                            <span>sanjay25251</span>
+                        </li>
+                        <li class="d-flex">
+                            <i class="fas fa-user-tie me-3"></i>
+                            <span>Daniel Carrière - Responsable de l'écovillage</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2023 Écovillage Hutamac. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <a href="#" class="text-white me-3">Mentions légales</a>
+                    <a href="#" class="text-white me-3">Politique de confidentialité</a>
+                    <a href="https://hutamac.blogspot.com/" class="text-white">Blog</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Library for scroll animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JS for animations -->
+    <script>
+        // Fade-in animations on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading overlay
+            setTimeout(() => {
+                document.querySelector('.loading-overlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.loading-overlay').style.display = 'none';
+                }, 500);
+            }, 1000);
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Progress bars animation
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 300);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Back to top button
+                const backToTop = document.querySelector('.back-to-top');
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+            
+            // Active nav link highlighting
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            // Counter animation
+            const counters = document.querySelectorAll('.eco-counter');
+            const speed = 200;
+            
+            const startCounter = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(() => startCounter(), 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                });
+            };
+            
+            // Start counter when in viewport
+            const counterSection = document.querySelector('.counter-section');
+            if (counterSection) {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            startCounter();
+                            counterObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                counterObserver.observe(counterSection);
+            }
+        });
+    </script>
+</body>
+</html>
