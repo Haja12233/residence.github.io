@@ -18,6 +18,7 @@
             --primary-color: #1a6e8d;
             --secondary-color: #2e8b57;
             --accent-color: #d4af37;
+            --accent: var(--accent-color);
             --light-color: #f8f4e9;
             --dark-color: #333;
             --transition: all 0.4s ease;
@@ -583,6 +584,164 @@
             color: white;
             font-size: 1.5rem;
         }
+        /* === NOUVEAU DESIGN "À PROPOS" - À AJOUTER EN FIN DE FICHIER CSS === */
+        .about-section {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM11 52c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm49 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-4-59a3 3 0 1 1 0-6 3 3 0 0 1 0 6z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .badge-animated {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transform: translateY(0);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .badge-animated:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+            background: #fff9e6;
+        }
+
+        .eco-card {
+            display: flex;
+            align-items: flex-start;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            margin-bottom: 22px;
+            padding: 18px;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .eco-icon {
+            border-radius: 12px;
+            margin: 12px;
+            transition: all 0.3s ease;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--accent-color);
+        }
+
+        .eco-card:hover .eco-icon {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .custom-progress {
+            height: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #e9ecef;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .custom-progress .progress-bar {
+            border-radius: 10px;
+            background: var(--accent);
+            transition: width 1.5s ease;
+            position: relative;
+        }
+
+        .custom-progress .progress-label {
+            position: absolute;
+            right: 15px;
+            top: -25px;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+
+        .thumbnail {
+            cursor: pointer;
+            border-radius: 12px;
+            height: 120px;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .hover-overlay {
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover .hover-overlay {
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .main-image {
+            border-radius: 20px;
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .main-image:hover {
+            transform: perspective(1000px) rotateY(-2deg) rotateX(2deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* === ANIMATIONS SPECIFIQUES POUR LA SECTION À PROPOS === */
+        [data-aos="fade-right"] {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        [data-aos="fade-right"].aos-animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        [data-aos="fade-left"] {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        [data-aos="fade-left"].aos-animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        [data-aos="zoom-in"] {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        [data-aos="zoom-in"].aos-animate {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 </head>
 <body>
@@ -641,92 +800,105 @@
             </div>
     </section>
 
-    <!-- Section À Propos -->
-    <section class="py-5">
+    <!-- Section À Propos - Design Premium avec Animations -->
+    <section class="about-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #eef5f9 100%);">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 fade-in">
-                    <h2 class="section-title">Notre Écovillage</h2>
-                    <p class="fs-5">Idéalement posé sur la plage, entre la reposante baie de Belo-sur-Mer et la majestueuse forêt de baobabs, l'Écovillage Hutamac se trouve parfaitement bien implanté dans l'environnement... et dans la société !</p>
-                    <p>Nous œuvrons pour la préservation de la biodiversité, pour la promotion des emplois locaux et pour la valorisation économique de Belo. Chaque élément de notre village a été conçu avec respect pour la nature et les traditions malgaches.</p>
-                    <div class="mt-4">
-                        <span class="eco-badge"><i class="fas fa-solar-panel me-1"></i> Énergie solaire</span>
-                        <span class="eco-badge"><i class="fas fa-toilet-paper me-1"></i> securiser </span>
-                        <span class="eco-badge"><i class="fas fa-tint me-1"></i> permaculture </span>
-                        <span class="eco-badge"><i class="fas fa-tree me-1"></i> Matériaux locaux</span>
-                    </div>
-                    
-                    <div class="mt-5">
-                        <h3 class="mb-4">Notre engagement écologique</h3>
-                        <div class="eco-feature">
-                            <div class="eco-feature-icon">
-                                <i class="fas fa-sun"></i>
+            <div class="row align-items-center gx-5">
+                <!-- Colonne Texte Gauche -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="mb-5">
+                        <span class="text-primary fw-bold mb-2 d-inline-block" style="letter-spacing: 1px;">
+                            <i class="fas fa-leaf me-2"></i>Notre Philosophie
+                        </span>
+                        <h2 class="display-5 fw-bold mb-4" style="line-height: 1.2;">
+                            Un équilibre parfait entre <span class="text-primary">nature</span> et <span class="text-success">hospitalité</span>
+                        </h2>
+                        <p class="lead text-muted mb-4">
+                            Au cœur du Village Touristique de Majunga, à deux pas de la mer, Hutamac n’est pas seulement un lieu pour dormir… c’est un havre de paix où chaque détail est pensé pour offrir calme et authenticité.
+                        </p>
+                        
+                        <!-- Badges animés -->
+                        <div class="d-flex flex-wrap gap-2 mb-5">
+                            <div class="badge-animated" data-aos="zoom-in" data-aos-delay="100">
+                                <i class="fas fa-solar-panel me-2"></i> 100% Énergie solaire
                             </div>
-                            <div>
-                                <h5>Énergie solaire</h5>
-                                <p>Électricité fournie par panneaux solaires, l'ensemble est autosuffisant</p>
+                            <div class="badge-animated" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fas fa-recycle me-2"></i> Zéro déchet
+                            </div>
+                            <div class="badge-animated" data-aos="zoom-in" data-aos-delay="300">
+                                <i class="fas fa-hands-helping me-2"></i> 85% Main d'œuvre locale
+                            </div>
+                            <div class="badge-animated" data-aos="zoom-in" data-aos-delay="400">
+                                <i class="fas fa-seedling me-2"></i> Permaculture certifiée
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Engagement écologique avec animations -->
+                    <div class="eco-features">
+                        <h3 class="mb-4 fw-bold position-relative d-inline-block">
+                            Notre engagement durable
+                            <span class="position-absolute bottom-0 start-0 w-50 h-2 bg-primary" style="border-radius: 2px;"></span>
+                        </h3>
                         
-                        <div class="eco-feature">
-                            <div class="eco-feature-icon">
-                                <i class="fas fa-tint"></i>
+                        <div class="eco-card mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="eco-icon bg-primary bg-opacity-10 text-primary">
+                                <i class="fas fa-sun fa-2x p-3"></i>
                             </div>
-                            <div>
-                                <h5>Respect de l'Eau</h5>
-                                <p>Restriction à 5 litres d'eau par personne et par jour, toilettes sèches</p>
-                                <div class="progress-container">
-                                    <div class="progress-label">
-                                        <span>Eau quotidienne</span>
-                                        <span>5L / personne</span>
+                            <div class="ms-4">
+                                <h4 class="mb-2 fw-bold">Énergie solaire</h4>
+                                <p class="text-muted mb-3">Système photovoltaïque couvrant 100% de nos besoins, avec stockage nocturne</p>
+                                <div class="progress custom-progress" style="--accent: #0d6efd;">
+                                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progress-label">Autosuffisance énergétique</span>
                                     </div>
-                                    <div class="progress-bar" data-width="100"></div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="eco-feature">
-                            <div class="eco-feature-icon">
-                                <i class="fas fa-tree"></i>
+                        <div class="eco-card mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="eco-icon bg-success bg-opacity-10 text-success">
+                                <i class="fas fa-tint fa-2x p-3"></i>
                             </div>
-                            <div>
-                                <h5>Matériaux Locaux</h5>
-                                <p>Constructions réalisées uniquement avec des matériaux locaux</p>
-                                <div class="progress-container">
-                                    <div class="progress-label">
-                                        <span>Matériaux locaux</span>
-                                        <span>100%</span>
+                            <div class="ms-4">
+                                <h4 class="mb-2 fw-bold">Gestion de l'eau</h4>
+                                <p class="text-muted mb-3">Collecte des eaux de pluie & recyclage par phytoépuration</p>
+                                <div class="progress custom-progress" style="--accent: #198754;">
+                                    <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progress-label">95% d'eau recyclée</span>
                                     </div>
-                                    <div class="progress-bar" data-width="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="eco-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="eco-icon bg-warning bg-opacity-10 text-warning">
+                                <i class="fas fa-tree fa-2x p-3"></i>
+                            </div>
+                            <div class="ms-4">
+                                <h4 class="mb-2 fw-bold">Matériaux locaux</h4>
+                                <p class="text-muted mb-3">Construction en bois de rose, bambou et terre crue</p>
+                                <div class="progress custom-progress" style="--accent: #ffc107;">
+                                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                        <span class="progress-label">100% matériaux durables</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
-                    <div class="row">
-                        <div class="col-6 mb-4 fade-in" style="animation-delay: 0.5s;">
-                            <div class="card h-100 shadow-sm">
-                                <div class="position-relative">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3cb5KwFcKqF_o9JYXQlRrw8PHXbcT_IAGmA&s" class="card-img-top image-parallax" alt="Parc Kirindy-Mitea">
-                                    <div class="activity-icon">
-                                        <i class="fas fa-leaf"></i>
-                                    </div>
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="icon-box">
-                                        <i class="fas fa-leaf"></i>
-                                    </div>
-                                    <h4 class="text-center">Village Touristique </h4>
-                                    <p class="text-center">Plongez dans l'authenticité malgache au cœur de la région nord-ouest de Madagascar</p>
-                                </div>
-                            </div>
+
+                <!-- Colonne Images Droite -->
+                <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left">
+                    <div class="position-relative">
+                        <!-- Image principale avec effet parallaxe -->
+                        <div class="main-image rounded-4 overflow-hidden shadow-lg" 
+                             style="height: 450px; background: url('https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/536273336_1287950036448930_3096354551273370706_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeG-YP2htKyFmxYOBo--fYlU5qJXwpjyYO3molfCmPJg7f1ePfLAYmMD-DgduS5uxyKkB6b3kaUpGU8uR9IzoUdH&_nc_ohc=wMDkXo2yDIQQ7kNvwEposOm&_nc_oc=AdmW5UL69zCkdMtkcf6L0gGMO9FS7I-Swa5Ij5f-D9eXsohV0yM-3eFJoVqKCgLnyIA&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=hs_FLeTC_xfxIgCX2mcOUw&oh=00_AfXSaAHP3KhWZwu5Z5tBBI6fHgIN0c5rMM282e1ZhlTIew&oe=68ADEC87') center/cover no-repeat; transform: perspective(1000px) rotateY(0);">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </div>                    
 
    <!-- Section Hébergements -->
 <section id="hebergements" class="py-5 bg-light">
@@ -1756,58 +1928,74 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Library for scroll animations -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <!-- Custom JS for animations -->
     <script>
-        // Fade-in animations on scroll
+        // Initialisation des variables de performance
+        let lastScroll = 0;
+        const PARALLAX_THRESHOLD = 5; // Seuil pour déclencher l'effet parallaxe
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Hide loading overlay
+            // Cache le loader après 1 seconde
             setTimeout(() => {
-                document.querySelector('.loading-overlay').style.opacity = '0';
-                setTimeout(() => {
-                    document.querySelector('.loading-overlay').style.display = 'none';
-                }, 500);
+                const loader = document.querySelector('.loading-overlay');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(() => loader.style.display = 'none', 500);
+                }
             }, 1000);
             
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
+            // Initialisation d'AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                    offset: 100
+                });
+            }
             
+            // Animation fade-in
             const fadeElements = document.querySelectorAll('.fade-in');
-            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('appear');
                     }
                 });
-            }, {
-                threshold: 0.1
-            });
+            }, { threshold: 0.1 });
             
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
+            fadeElements.forEach(element => observer.observe(element));
             
-            // Progress bars animation
+            // Animation des progress bars existantes
             const progressBars = document.querySelectorAll('.progress-bar');
             progressBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                setTimeout(() => {
-                    bar.style.width = width + '%';
-                }, 300);
+                const width = bar.getAttribute('data-width') || 100;
+                setTimeout(() => bar.style.width = width + '%', 300);
             });
             
-            // Smooth scrolling for anchor links
+            // ======== NOUVEAU : Animation des progress bars personnalisées ========
+            const customProgressBars = document.querySelectorAll('.custom-progress .progress-bar');
+            const customObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetWidth = entry.target.getAttribute('aria-valuenow') + '%';
+                        entry.target.style.width = '0%';
+                        setTimeout(() => entry.target.style.width = targetWidth, 200);
+                        customObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            customProgressBars.forEach(bar => customObserver.observe(bar));
+            // =====================================================
+            
+            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+                anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
+                    if (targetId === '#' || targetId === '#!') return;
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
@@ -1819,25 +2007,39 @@
                 });
             });
             
-            // Navbar scroll effect
+            // Effets de navigation
             const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', () => {
+            window.addEventListener('scroll', handleScrollEffects);
+            
+            function handleScrollEffects() {
+                // Gestion de la navbar
                 if (window.scrollY > 100) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
                 
-                // Back to top button
+                // Bouton "Retour en haut"
                 const backToTop = document.querySelector('.back-to-top');
-                if (window.scrollY > 500) {
-                    backToTop.classList.add('active');
-                } else {
-                    backToTop.classList.remove('active');
+                if (backToTop) {
+                    backToTop.classList.toggle('active', window.scrollY > 500);
                 }
-            });
+                
+                // ======== NOUVEAU : Effet parallaxe optimisé ========
+                const currentScroll = window.scrollY;
+                if (Math.abs(currentScroll - lastScroll) > PARALLAX_THRESHOLD) {
+                    lastScroll = currentScroll;
+                    
+                    const mainImage = document.querySelector('.main-image');
+                    if (mainImage) {
+                        const rotation = Math.min(currentScroll * 0.01, 5); // Limite à 5°
+                        mainImage.style.transform = `perspective(1000px) rotateY(${rotation}deg)`;
+                    }
+                }
+                // =====================================================
+            }
             
-            // Active nav link highlighting
+            // Mise à jour des liens actifs
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
             
@@ -1846,8 +2048,6 @@
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
                     if (pageYOffset >= (sectionTop - 150)) {
                         current = section.getAttribute('id');
                     }
@@ -1861,11 +2061,11 @@
                 });
             });
             
-            // Counter animation
+            // Animation des compteurs
             const counters = document.querySelectorAll('.eco-counter');
             const speed = 200;
             
-            const startCounter = () => {
+            function startCounter() {
                 counters.forEach(counter => {
                     const target = +counter.getAttribute('data-target');
                     const count = +counter.innerText;
@@ -1873,14 +2073,14 @@
                     
                     if (count < target) {
                         counter.innerText = Math.ceil(count + inc);
-                        setTimeout(() => startCounter(), 1);
+                        requestAnimationFrame(startCounter);
                     } else {
                         counter.innerText = target;
                     }
                 });
-            };
+            }
             
-            // Start counter when in viewport
+            // Déclenchement des compteurs
             const counterSection = document.querySelector('.counter-section');
             if (counterSection) {
                 const counterObserver = new IntersectionObserver((entries) => {
@@ -1894,6 +2094,16 @@
                 
                 counterObserver.observe(counterSection);
             }
+            
+            // Initialisation des effets de scroll
+            handleScrollEffects();
+        });
+        
+        // Gestion du resize pour réinitialiser les effets
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.main-image').forEach(img => {
+                img.style.transform = 'perspective(1000px) rotateY(0deg)';
+            });
         });
     </script>
 </body>
